@@ -1,4 +1,4 @@
-# CheckThisFile Core
+# CheckThisFile
 
 Local file integrity for applications, command-line workflows and coding agents.
 
@@ -8,19 +8,21 @@ Calculate SHA-256, compare exact files, create portable folder manifests and che
 
 ## Install this release
 
-Download the versioned archive and checksum from [the release page](https://checkthisfile.com/en/developers/local), then install the pinned release:
+Install the pinned release from npm:
 
 ```sh
-npm install ./checkthisfile-core-0.1.2.tgz
+npm install checkthisfile@0.1.3
 ./node_modules/.bin/checkthisfile --help
 ```
 
-The archive contains the MIT-licensed source, TypeScript declarations and documentation. Installation may contact npm; operations after installation do not use the network. Pin versions and keep your lockfile.
+For a one-off CLI check, use `npx checkthisfile@0.1.3 --help`. You can also download the versioned archive and checksum from [the release page](https://checkthisfile.com/developers/local) and install it with `npm install ./checkthisfile-0.1.3.tgz`.
+
+The package contains the MIT-licensed source, TypeScript declarations and documentation. Installation may contact npm; operations after installation do not use the network. Pin versions and keep your lockfile. Source and contributions: [GitHub](https://github.com/uningeniero/checkthisfile).
 
 ## JavaScript / TypeScript
 
 ```js
-import { hashFile, compareFiles, createFolderManifest, verifyFolderManifest } from 'checkthisfile-core';
+import { hashFile, compareFiles, createFolderManifest, verifyFolderManifest } from 'checkthisfile';
 
 const fingerprint = await hashFile('./proposal.pdf');
 const comparison = await compareFiles('./approved.pdf', './received.pdf');
@@ -48,13 +50,13 @@ JSON on stdout, fixed error codes on stderr. Exit 0: completed or exact match; 1
 ## Browser and portable format
 
 ```js
-import { sha256Bytes, compareManifests, parseManifest } from 'checkthisfile-core/browser';
+import { sha256Bytes, compareManifests, parseManifest } from 'checkthisfile/browser';
 const hash = await sha256Bytes(new Uint8Array(await file.arrayBuffer()));
 ```
 
-Browser hashing uses Web Crypto and a whole in-memory byte buffer; use appropriate application size limits. The browser entry imports no Node modules. `checkthisfile-core/manifest` provides pure validators and comparison without crypto or filesystem access.
+Browser hashing uses Web Crypto and a whole in-memory byte buffer; use appropriate application size limits. The browser entry imports no Node modules. `checkthisfile/manifest` provides pure validators and comparison without crypto or filesystem access.
 
-Manifest v1 is interoperable with [CheckThisFile's folder tool](https://checkthisfile.com/en/tools/folder-manifest): relative NFC paths, exact byte sizes and lowercase SHA-256. Bounds: 100 files, 50 MiB/file, 250 MiB total, JSON 256 KiB, depth 32 and 1,000 directories. Rejects duplicate normalized paths, traversal, absolute paths, control/bidi characters, symlinks and non-regular files. Invalid/unsupported inputs fail closed. All files, including hidden files, participate; empty directories do not. An entirely empty folder is rejected.
+Manifest v1 is interoperable with [CheckThisFile's folder tool](https://checkthisfile.com/tools/folder-manifest): relative NFC paths, exact byte sizes and lowercase SHA-256. Bounds: 100 files, 50 MiB/file, 250 MiB total, JSON 256 KiB, depth 32 and 1,000 directories. Rejects duplicate normalized paths, traversal, absolute paths, control/bidi characters, symlinks and non-regular files. Invalid/unsupported inputs fail closed. All files, including hidden files, participate; empty directories do not. An entirely empty folder is rejected.
 
 ## Trust model
 
@@ -62,7 +64,7 @@ A manifest is unsigned. Obtain your reference from a trusted channel: replacing 
 
 File stats are checked before/after hashing to detect common concurrent changes. This is not a filesystem snapshot or a sandbox for adversarial concurrent filesystem mutation; use an immutable copy or OS isolation for that threat model. Do not modify the directory during a run.
 
-The separately hosted [integrity API](https://checkthisfile.com/en/developers/integrity) can register hashes and expose version status with explicitly scoped credentials. Offline signed-receipt verification is provided by the separate documented Python verifier; it is not implemented in this Core version.
+The separately hosted [integrity API](https://checkthisfile.com/developers/integrity) can register hashes and expose version status with explicitly scoped credentials. Offline signed-receipt verification is provided by the separate documented Python verifier; it is not implemented in this library version.
 
 ## Releases, licence and contribution
 

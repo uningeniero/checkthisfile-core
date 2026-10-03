@@ -3,7 +3,7 @@ import { open, lstat } from "node:fs/promises";
 import { constants } from "node:fs";
 import { hashFile, compareFiles, createFolderManifest, verifyFolderManifest, version } from "./index.js";
 const args = process.argv.slice(2), [command, ...paths] = args;
-const help = `CheckThisFile Core ${version} - local file integrity\n\ncheckthisfile hash FILE\ncheckthisfile compare FIRST SECOND\ncheckthisfile manifest FOLDER\ncheckthisfile verify MANIFEST.json FOLDER\n\nJSON to stdout. Exit: 0 completed/match, 1 mismatch, 2 error.\nNo network, keys, telemetry, updates or file writes.\nNode.js 22+. Folder bounds: 100 files, 50 MiB each, 250 MiB combined.\n`;
+const help = `CheckThisFile ${version} - local file integrity\n\ncheckthisfile hash FILE\ncheckthisfile compare FIRST SECOND\ncheckthisfile manifest FOLDER\ncheckthisfile verify MANIFEST.json FOLDER\n\nJSON to stdout. Exit: 0 completed/match, 1 mismatch, 2 error.\nNo network, keys, telemetry, updates or file writes.\nNode.js 22+. Folder bounds: 100 files, 50 MiB each, 250 MiB combined.\n`;
 try {
   let result;
   if (command === "--help" || command === "-h" || !command) process.stdout.write(help);

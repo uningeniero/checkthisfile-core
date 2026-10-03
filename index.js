@@ -4,7 +4,7 @@ import { constants } from "node:fs";
 import { resolve, join } from "node:path";
 import { limits, normalizePath, parseManifest, compareManifests } from "./manifest.js";
 export { limits, normalizePath, parseManifest, compareManifests } from "./manifest.js";
-export const version = "0.1.0";
+export const version = "0.1.3";
 export function sha256Bytes(bytes) {
   if (!(bytes instanceof Uint8Array)) throw new Error("INVALID_BYTES");
   return createHash("sha256").update(bytes).digest("hex");

@@ -1,6 +1,6 @@
 {
-  "name": "checkthisfile-core",
-  "version": "0.1.2",
+  "name": "checkthisfile",
+  "version": "0.1.3",
   "description": "Offline file integrity for applications and coding agents: SHA-256, exact-file comparison and portable folder manifests. No network, account or telemetry.",
   "type": "module",
   "license": "MIT",
@@ -14,8 +14,8 @@
   "files": ["*.js", "*.d.ts", "README.md", "LICENSE", "CHANGELOG.md", "SECURITY.md", "AGENTS.md", "schema.json"],
   "scripts": { "test": "node --test test/*.test.js" },
   "keywords": ["file-integrity", "sha256", "checksum", "manifest", "offline", "document-verification", "cli", "ai-agents", "checkthisfile"],
-  "homepage": "https://checkthisfile.com/en/developers/local",
-  "repository": { "type": "git", "url": "git+https://github.com/uningeniero/checkthisfile-core.git" },
-  "bugs": { "url": "https://github.com/uningeniero/checkthisfile-core/issues" },
+  "homepage": "https://checkthisfile.com/developers/local",
+  "repository": { "type": "git", "url": "git+https://github.com/uningeniero/checkthisfile.git" },
+  "bugs": { "url": "https://github.com/uningeniero/checkthisfile/issues" },
   "publishConfig": { "access": "public" }
 }

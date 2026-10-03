@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3 - 2026-10-04
+
+- Publish the local library and CLI as `checkthisfile`.
+- Align the CLI version with the package version.
+- Update installation examples, source links and documentation.
+- Preserve the local APIs, manifest v1 format and no-network runtime.
+
 ## 0.1.2 - 2026-10-03
 
 - Use the product support page for security reports.
