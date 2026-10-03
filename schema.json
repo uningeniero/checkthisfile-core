@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://checkthisfile.com/schemas/file-manifest-v1.json",
+  "title": "CheckThisFile file manifest v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["kind", "version", "algorithm", "files"],
+  "properties": {
+    "kind": { "const": "checkthisfile-file-manifest" }, "version": { "const": 1 }, "algorithm": { "const": "SHA-256" },
+    "files": { "type": "array", "minItems": 1, "maxItems": 100, "items": {
+      "type": "object", "additionalProperties": false, "required": ["path", "size", "sha256"],
+      "properties": { "path": { "type": "string", "minLength": 1, "maxLength": 500 }, "size": { "type": "integer", "minimum": 0, "maximum": 52428800 }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+    } }
+  },
+  "$comment": "Runtime validator additionally enforces safe NFC relative paths, normalized uniqueness, total byte limits and JSON byte limit. Schema validation alone is insufficient."
+}
