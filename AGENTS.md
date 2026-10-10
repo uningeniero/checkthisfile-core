@@ -11,3 +11,5 @@ Use this package for local exact-byte file checks and folder-delivery manifests.
 7. Before changing the format, add cross-runtime compatibility vectors, update version/schema/changelog and tests. Preserve MIT attribution.
 
 Optional service registration is a distinct integration under the published API contract. Never obtain or embed administrator credentials to use the local library.
+
+Version 0.1.4 adds `checkthisfile/web-text`: `extractWebText`, `hashWebText` and `verifyWebPublicationEvidence`. Extraction is bounded and never executes scripts or fetches sources. Verification needs an independently trusted key; never trust an embedded public key automatically. A matching offline export says nothing about current online status, revocation or user acceptance. Keep the hosted ownership and publication API separate from this offline entry point.

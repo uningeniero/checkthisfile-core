@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 - prepared 2026-10-10
+
+- Add offline `checkthisfile/web-text`: bounded HTML section extraction, SHA-256 text hashing and signed website evidence verification with an independently trusted key.
+- Publish the deterministic `web-section-v1` extraction profile. No network calls or telemetry.
+
 ## 0.1.3 - 2026-10-04
 
 - Publish the local library and CLI as `checkthisfile`.
